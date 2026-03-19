@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Oleh Bedenok CV</title>
+
+<style>
+
+body{
+font-family: "Segoe UI", Arial;
+background:#f5f7fb;
+margin:0;
+padding:40px;
+}
+
+.cv{
+max-width:900px;
+margin:auto;
+background:white;
+box-shadow:0 8px 30px rgba(0,0,0,0.12);
+display:grid;
+grid-template-columns:320px 1fr;
+}
+
+.left{
+background:#f1f4fb;
+padding:30px;
+text-align:center;
+}
+
+.right{
+padding:40px;
+}
+
+.photo{
+width:130px;
+height:130px;
+border-radius:50%;
+object-fit:cover;
+margin-bottom:20px;
+border:4px solid #2563eb;
+}
+
+.name{
+font-size:34px;
+font-weight:700;
+margin-bottom:5px;
+}
+
+.title{
+color:#2563eb;
+font-weight:600;
+margin-bottom:30px;
+}
+
+.section{
+margin-bottom:30px;
+text-align:left;
+}
+
+.section h3{
+font-size:14px;
+letter-spacing:1px;
+color:#2563eb;
+margin-bottom:10px;
+}
+
+.contact div{
+margin-bottom:6px;
+font-size:14px;
+}
+
+.skill{
+background:#e8eeff;
+padding:7px 10px;
+border-radius:5px;
+margin-bottom:6px;
+font-size:13px;
+}
+
+.job{
+margin-bottom:20px;
+}
+
+.job-title{
+font-weight:600;
+}
+
+.date{
+float:right;
+color:#777;
+font-size:13px;
+}
+
+ul{
+padding-left:18px;
+}
+
+li{
+margin-bottom:4px;
+}
+
+.small{
+font-size:13px;
+color:#666;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="cv">
+
+<!-- LEFT COLUMN -->
+
+<div class="left">
+
+<img src="files/photo.jpg" class="photo">
+
+<div class="section">
+
+<h3>KONTAKT</h3>
+
+<div class="contact">
+<div>📧 oleg11228811@gmail.com</div>
+<div>📱 +48 577 165 986</div>
+<div>📍 Kowale (Gdańsk)</div>
+<div>GitHub: github.com/oleg1281</div>
+<div>LinkedIn: linkedin.com/in/oleg-bedenok</div>
+</div>
+
+</div>
+
+<div class="section">
+
+    <h3>UMIEJĘTNOŚCI</h3>
+
+    <div class="skill">Python, NumPy, Pandas, xarray, async</div>
+
+    <div class="skill">GraphCast, SWAN, U-Net, FedFormer, XGBoost, ARIMA, SARIMAX</div>
+
+    <div class="skill">Docker, FastAPI, Git, GitHub Actions</div>
+
+    <div class="skill">Linux, Bash, Windows, WSL2</div>
+
+    <div class="skill">Computer Vision, image processing</div>
+
+    <div class="skill">Forecasting systems, Time Series Forecasting</div>
+
+    <div class="skill">ERA5, GFS, GEBCO</div>
+
+    <div class="skill">NetCDF, GRIB, CSV</div>
+
+    <div class="skill">CUDA, GPU inference optimisation</div>
+
+    <div class="skill">Dash, Plotly, Matplotlib</div>
+
+</div>
+
+<div class="section">
+
+<h3>JĘZYKI</h3>
+
+<div class="small">Polski — B2</div>
+<div class="small">Ukraiński — ojczysty</div>
+<div class="small">Rosyjski — ojczysty</div>
+<div class="small">Angielski — podstawowy</div>
+
+</div>
+
+<div class="section">
+
+<h3>CERTYFIKATY</h3>
+
+<div class="small">Python Developer (Sololearn)</div>
+<div class="small">Python Intermediate</div>
+<div class="small">Introduction to Python</div>
+<div class="small">Introduction to C++</div>
+
+</div>
+
+</div>
+
+<!-- RIGHT COLUMN -->
+
+<div class="right">
+
+<div class="name">Oleh Bedenok</div>
+
+<div class="title">
+AI & Machine Learning Engineer | Forecasting Systems
+</div>
+
+<div class="section">
+
+<h3>PODSUMOWANIE</h3>
+
+<p>
+Inżynier uczenia maszynowego specjalizujący się w budowie operacyjnych
+systemów prognozowania pogody i fal morskich. Tworzę stabilne pipeline’y
+produkcyjne: automatyczne pobieranie danych, preprocessing, inferencja
+GPU, API oraz wizualizacje prognoz.
+</p>
+
+</div>
+
+<div class="section">
+
+<h3>DOŚWIADCZENIE</h3>
+
+<div class="job">
+
+<div class="job-title">
+ML Engineer — MEWO
+<span class="date">03.2025 – obecnie</span>
+</div>
+
+<ul>
+
+<li>Operacyjny system prognoz: GraphCast → SWAN</li>
+<li>Pipeline danych ERA5 / GFS / NetCDF</li>
+<li>Inferencja GPU i optymalizacja obliczeń</li>
+<li>REST API (FastAPI) i wizualizacja prognoz</li>
+
+</ul>
+
+</div>
+
+<div class="job">
+
+<div class="job-title">
+Projekty komercyjne
+<span class="date">2023 – 2025</span>
+</div>
+
+<ul>
+
+<li>Prognozowanie szeregów czasowych (FedFormer, XGBoost)</li>
+<li>Automatyzacja pipeline’ów danych</li>
+<li>Docker + FastAPI + CI/CD</li>
+
+</ul>
+
+</div>
+
+<div class="job">
+
+<div class="job-title">
+Inżynier systemów elektronicznych
+<span class="date">2000 – 2025</span>
+</div>
+
+<ul>
+
+<li>Diagnostyka systemów elektronicznych</li>
+<li>Systemy czasu rzeczywistego</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h3>PROJEKTY</h3>
+
+<ul>
+
+<li>GraphCast + SWAN — operacyjny system prognoz</li>
+<li>Pipeline ERA5 / GFS / GEBCO → NetCDF</li>
+<li>Segmentacja danych sonarowych (U-Net + GIS)</li>
+
+</ul>
+
+</div>
+
+<div class="section">
+
+<h3>WYKSZTAŁCENIE</h3>
+
+Wyższa Szkoła Telekomunikacji w Kijowie  
+2006 – 2009  
+Inżynieria komputerowa
+
+</div>
+
+<div class="section small">
+
+Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z art. 6 ust. 1 lit. a RODO.
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

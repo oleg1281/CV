@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Oleh Bedenok CV</title>
+<style>
+
+@page { size: A4; margin: 0; }
+
+body{
+margin:0;
+font-family:Segoe UI, Arial;
+background:#0b1220;
+color:white;
+}
+
+.page{
+width:210mm;
+height:297mm;
+padding:25mm;
+box-sizing:border-box;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+background:radial-gradient(circle at top,#0f1b35,#050a18);
+}
+
+h1{
+font-size:32px;
+margin:0;
+}
+
+h2{
+font-size:14px;
+color:#60a5fa;
+margin:15px 0 5px;
+letter-spacing:1px;
+}
+
+.row{
+display:flex;
+gap:20px;
+}
+
+.col{
+flex:1;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+padding:12px;
+border-radius:10px;
+margin-bottom:10px;
+border:1px solid rgba(255,255,255,0.1);
+}
+
+.small{
+font-size:12px;
+color:#cbd5e1;
+}
+
+.pipeline{
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-top:10px;
+}
+
+.node{
+padding:8px 10px;
+border-radius:8px;
+background:#1e293b;
+font-size:11px;
+border:1px solid #334155;
+}
+
+.line{
+flex:1;
+height:2px;
+background:#60a5fa;
+margin:0 5px;
+}
+
+/* PRINT FIX */
+@media print{
+body{background:white;}
+.page{
+background:white;
+color:black;
+}
+.card{
+background:#f1f5f9;
+border:none;
+}
+h2{color:#2563eb;}
+}
+
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<div>
+<h1>Oleh Bedenok</h1>
+<div class="small">Senior Machine Learning Engineer | Forecasting Systems</div>
+
+<div class="row" style="margin-top:20px">
+
+<div class="col">
+
+<h2>PROFILE</h2>
+<div class="card small">
+Building production ML systems for weather and marine forecasting. End-to-end pipelines from data ingestion to API delivery.
+</div>
+
+<h2>SKILLS</h2>
+<div class="card small">
+Python • GraphCast • SWAN • FastAPI • Docker • NetCDF • Time Series
+</div>
+
+<h2>CONTACT</h2>
+<div class="card small">
+Email: oleg11228811@gmail.com<br>
+Phone: +48 577 165 986<br>
+Gdańsk, Poland
+</div>
+
+</div>
+
+<div class="col">
+
+<h2>CORE SYSTEM</h2>
+<div class="card">
+<div class="pipeline">
+<div class="node">ERA5</div>
+<div class="line"></div>
+<div class="node">GraphCast</div>
+<div class="line"></div>
+<div class="node">SWAN</div>
+<div class="line"></div>
+<div class="node">API</div>
+</div>
+</div>
+
+<h2>EXPERIENCE</h2>
+<div class="card small">
+<b>ML Engineer — MEWO</b><br>
+• GraphCast + SWAN system<br>
+• Data pipelines ERA5/GFS<br>
+• Forecast API
+</div>
+
+<h2>PROJECTS</h2>
+<div class="card small">
+• Forecast system<br>
+• Weather pipelines<br>
+• Sonar segmentation
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+</body>
