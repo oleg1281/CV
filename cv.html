@@ -5,295 +5,733 @@
 <title>Oleh Bedenok CV</title>
 
 <style>
+  :root {
+    --bg: #020617;
+    --card-bg: rgba(15, 23, 42, 0.94);
+    --accent: #22d3ee;
+    --accent-strong: #38bdf8;
+    --accent-soft: rgba(56, 189, 248, 0.24);
+    --accent-pink: rgba(244, 114, 182, 0.55);
+    --text-main: #e5e7eb;
+    --text-muted: #9ca3af;
+    --border-soft: rgba(148, 163, 184, 0.4);
+    --glow: 0 0 32px rgba(56, 189, 248, 0.45);
+  }
 
-body{
-font-family: "Segoe UI", Arial;
-background:#f5f7fb;
-margin:0;
-padding:40px;
-}
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
-.cv{
-max-width:900px;
-margin:auto;
-background:white;
-box-shadow:0 8px 30px rgba(0,0,0,0.12);
-display:grid;
-grid-template-columns:320px 1fr;
-}
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial,
+      sans-serif;
+    background:
+      radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.16), transparent 55%),
+      radial-gradient(circle at 100% 0%, rgba(129, 140, 248, 0.2), transparent 55%),
+      radial-gradient(circle at 50% 100%, rgba(15, 118, 110, 0.16), transparent 55%),
+      var(--bg);
+    margin: 0;
+    padding: 32px 16px 40px 16px;
+    color: var(--text-main);
+    position: relative;
+    overflow-x: hidden;
+  }
 
-.left{
-background:#f1f4fb;
-padding:30px;
-text-align:center;
-}
+  body::before {
+    content: "";
+    position: fixed;
+    inset: -200px;
+    background-image: linear-gradient(
+        rgba(15, 23, 42, 0.96),
+        rgba(15, 23, 42, 0.98)
+      ),
+      radial-gradient(circle at 10% 0%, rgba(56, 189, 248, 0.14), transparent 55%),
+      radial-gradient(circle at 90% 100%, rgba(244, 114, 182, 0.18), transparent 55%);
+    mix-blend-mode: normal;
+    pointer-events: none;
+    z-index: -2;
+  }
 
-.right{
-padding:40px;
-}
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: linear-gradient(
+        135deg,
+        rgba(15, 23, 42, 0.9) 0%,
+        rgba(15, 23, 42, 0.2) 40%,
+        rgba(15, 23, 42, 0.9) 100%
+      );
+    mix-blend-mode: soft-light;
+    pointer-events: none;
+    z-index: -1;
+  }
 
-.photo{
-width:130px;
-height:130px;
-border-radius:50%;
-object-fit:cover;
-margin-bottom:20px;
-border:4px solid #2563eb;
-}
+  .cv {
+    max-width: 980px;
+    margin: auto;
+    background: radial-gradient(circle at top, rgba(15, 23, 42, 0.2), transparent 55%),
+      linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.98));
+    border-radius: 26px;
+    overflow: hidden;
+    border: 1px solid rgba(148, 163, 184, 0.6);
+    box-shadow:
+      0 30px 80px rgba(15, 23, 42, 1),
+      0 0 0 1px rgba(15, 23, 42, 1);
+    display: grid;
+    grid-template-columns: 310px 1fr;
+    backdrop-filter: blur(26px);
+    position: relative;
+  }
 
-.name{
-font-size:34px;
-font-weight:700;
-margin-bottom:5px;
-}
+  .cv::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(
+        135deg,
+        rgba(56, 189, 248, 0.08),
+        transparent 30%,
+        rgba(244, 114, 182, 0.08),
+        transparent 70%
+      );
+    mix-blend-mode: screen;
+    pointer-events: none;
+  }
 
-.title{
-color:#2563eb;
-font-weight:600;
-margin-bottom:30px;
-}
+  .cv::after {
+    content: "";
+    position: absolute;
+    inset: 18px;
+    border-radius: 20px;
+    border: 1px solid rgba(148, 163, 184, 0.5);
+    pointer-events: none;
+    box-shadow: 0 0 0 1px rgba(15, 23, 42, 1);
+  }
 
-.section{
-margin-bottom:30px;
-text-align:left;
-}
+  .cv-header {
+    position: relative;
+    z-index: 1;
+    padding: 24px 32px 10px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.45);
+  }
 
-.section h3{
-font-size:14px;
-letter-spacing:1px;
-color:#2563eb;
-margin-bottom:10px;
-}
+  .cv-id {
+    font-family: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
 
-.contact div{
-margin-bottom:6px;
-font-size:14px;
-}
+  .cv-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-family: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace;
+    color: var(--text-muted);
+  }
 
-.skill{
-background:#e8eeff;
-padding:7px 10px;
-border-radius:5px;
-margin-bottom:6px;
-font-size:13px;
-}
+  .cv-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #f9fafb 0, var(--accent-strong) 55%, transparent 75%);
+    box-shadow: var(--glow);
+  }
 
-.job{
-margin-bottom:20px;
-}
+  .cv-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+  }
 
-.job-title{
-font-weight:600;
-}
+  .panel {
+    position: relative;
+    padding: 26px 26px 22px 26px;
+    border-radius: 18px;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.06),
+      rgba(255, 255, 255, 0.01)
+    );
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(12px);
+  }
 
-.date{
-float:right;
-color:#777;
-font-size:13px;
-}
+  .panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.18),
+      transparent 32%
+    );
+    opacity: 0.35;
+    pointer-events: none;
+  }
 
-ul{
-padding-left:18px;
-}
+  .panel--right {
+    padding: 30px 40px 26px 32px;
+  }
 
-li{
-margin-bottom:4px;
-}
+  .panel-title {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    font-family: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace;
+  }
 
-.small{
-font-size:13px;
-color:#666;
-}
+  .panel-title span {
+    color: var(--accent-strong);
+  }
 
+  .panel-title::after {
+    content: "";
+    display: inline-block;
+    width: 40px;
+    height: 1px;
+    margin-left: 10px;
+    background: linear-gradient(90deg, var(--accent-strong), transparent);
+    opacity: 0.8;
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 18px;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+
+  .avatar-ring {
+    position: relative;
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background:
+      conic-gradient(from 220deg, var(--accent-strong), var(--accent-pink), var(--accent-strong));
+    padding: 2px;
+    box-shadow: var(--glow);
+  }
+
+  .avatar-ring-inner {
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 0%, rgba(56, 189, 248, 0.38), #020617);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .avatar-ring-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-text-name {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-bottom: 4px;
+  }
+
+  .hero-text-role {
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-strong);
+    margin-bottom: 8px;
+  }
+
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tag {
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.6);
+    background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.25), rgba(15, 23, 42, 0.98));
+    color: var(--text-main);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4px;
+    margin-top: 10px;
+  }
+
+  .contact-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .contact-label {
+    font-family: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .contact-value {
+    color: var(--text-main);
+  }
+
+  .pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  .pill {
+    font-size: 11px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.7);
+    color: var(--text-muted);
+    font-family: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace;
+  }
+
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .metric {
+    border-radius: 14px;
+    border: 1px solid rgba(15, 23, 42, 0.9);
+    background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.26), rgba(15, 23, 42, 0.98));
+    box-shadow: 0 0 0 1px rgba(15, 23, 42, 1);
+    padding: 10px 11px 8px 11px;
+  }
+
+  .metric-label {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-family: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace;
+    margin-bottom: 4px;
+  }
+
+  .metric-value {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .metric-desc {
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  .stack-list {
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--text-main);
+  }
+
+  .stack-list span {
+    color: var(--text-muted);
+  }
+
+  .xp-group {
+    margin-top: 4px;
+  }
+
+  .xp-item {
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 14px;
+  }
+
+  .xp-item::before {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: radial-gradient(circle, #f9fafb 0, var(--accent-strong) 50%, transparent 80%);
+    box-shadow: var(--glow);
+  }
+
+  .xp-item::after {
+    content: "";
+    position: absolute;
+    left: 8.5px;
+    top: 16px;
+    width: 1px;
+    bottom: -10px;
+    background: linear-gradient(to bottom, var(--accent-soft), transparent);
+  }
+
+  .xp-item:last-of-type::after {
+    display: none;
+  }
+
+  .xp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 2px;
+  }
+
+  .xp-role {
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .xp-period {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-family: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .xp-company {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+
+  .xp-list {
+    margin: 0;
+    padding-left: 16px;
+  }
+
+  .xp-list li {
+    margin-bottom: 2px;
+    font-size: 13px;
+  }
+
+  .section-caption {
+    font-size: 12px;
+    color: var(--text-main);
+    line-height: 1.55;
+    margin-top: 4px;
+  }
+
+  .lang-list,
+  .cert-list {
+    margin-top: 6px;
+    font-size: 12px;
+    color: var(--text-main);
+  }
+
+  .footer-note {
+    font-size: 11px;
+    color: var(--text-muted);
+    border-top: 1px dashed rgba(148, 163, 184, 0.6);
+    padding-top: 10px;
+    margin-top: 8px;
+  }
+
+  .date {
+    color: var(--text-muted);
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  ul {
+    padding-left: 20px;
+    margin: 4px 0 0 0;
+  }
+
+  li {
+    margin-bottom: 4px;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-main);
+  }
+
+  .small {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .section.small {
+    border-top: 1px solid rgba(148, 163, 184, 0.4);
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+
+  /* Responsive */
+  @media (max-width: 880px) {
+    body {
+      padding: 16px 10px;
+    }
+
+    .cv {
+      border-radius: 22px;
+    }
+
+    .cv-header {
+      padding: 18px 18px 8px 18px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    .cv-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .panel {
+      padding: 20px 18px 16px 18px;
+    }
+
+    .panel--right {
+      padding: 18px 18px 18px 18px;
+    }
+
+    .hero {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Print-friendly */
+  @media print {
+    body {
+      background: #ffffff;
+      padding: 0;
+    }
+
+    .cv {
+      max-width: none;
+      box-shadow: none;
+      border-radius: 0;
+    }
+
+    .photo {
+      box-shadow: none;
+    }
+  }
 </style>
 </head>
 
 <body>
 
 <div class="cv">
-
-<!-- LEFT COLUMN -->
-
-<div class="left">
-
-<img src="files/photo.jpg" class="photo">
-
-<div class="section">
-
-<h3>KONTAKT</h3>
-
-<div class="contact">
-<div>📧 oleg11228811@gmail.com</div>
-<div>📱 +48 577 165 986</div>
-<div>📍 Kowale (Gdańsk)</div>
-<div>GitHub: github.com/oleg1281</div>
-<div>LinkedIn: linkedin.com/in/oleg-bedenok</div>
-</div>
-
-</div>
-
-<div class="section">
-
-    <h3>UMIEJĘTNOŚCI</h3>
-
-    <div class="skill">Python, NumPy, Pandas, xarray, async</div>
-
-    <div class="skill">GraphCast, SWAN, U-Net, FedFormer, XGBoost, ARIMA, SARIMAX</div>
-
-    <div class="skill">Docker, FastAPI, Git, GitHub Actions</div>
-
-    <div class="skill">Linux, Bash, Windows, WSL2</div>
-
-    <div class="skill">Computer Vision, image processing</div>
-
-    <div class="skill">Forecasting systems, Time Series Forecasting</div>
-
-    <div class="skill">ERA5, GFS, GEBCO</div>
-
-    <div class="skill">NetCDF, GRIB, CSV</div>
-
-    <div class="skill">CUDA, GPU inference optimisation</div>
-
-    <div class="skill">Dash, Plotly, Matplotlib</div>
-
-</div>
-
-<div class="section">
-
-<h3>JĘZYKI</h3>
-
-<div class="small">Polski — B2</div>
-<div class="small">Ukraiński — ojczysty</div>
-<div class="small">Rosyjski — ojczysty</div>
-<div class="small">Angielski — podstawowy</div>
-
-</div>
-
-<div class="section">
-
-<h3>CERTYFIKATY</h3>
-
-<div class="small">Python Developer (Sololearn)</div>
-<div class="small">Python Intermediate</div>
-<div class="small">Introduction to Python</div>
-<div class="small">Introduction to C++</div>
-
-</div>
-
-</div>
-
-<!-- RIGHT COLUMN -->
-
-<div class="right">
-
-<div class="name">Oleh Bedenok</div>
-
-<div class="title">
-AI & Machine Learning Engineer | Forecasting Systems
-</div>
-
-<div class="section">
-
-<h3>PODSUMOWANIE</h3>
-
-<p>
-Inżynier uczenia maszynowego specjalizujący się w budowie operacyjnych
-systemów prognozowania pogody i fal morskich. Tworzę stabilne pipeline’y
-produkcyjne: automatyczne pobieranie danych, preprocessing, inferencja
-GPU, API oraz wizualizacje prognoz.
-</p>
-
-</div>
-
-<div class="section">
-
-<h3>DOŚWIADCZENIE</h3>
-
-<div class="job">
-
-<div class="job-title">
-ML Engineer — MEWO
-<span class="date">03.2025 – obecnie</span>
-</div>
-
-<ul>
-
-<li>Operacyjny system prognoz: GraphCast → SWAN</li>
-<li>Pipeline danych ERA5 / GFS / NetCDF</li>
-<li>Inferencja GPU i optymalizacja obliczeń</li>
-<li>REST API (FastAPI) i wizualizacja prognoz</li>
-
-</ul>
-
-</div>
-
-<div class="job">
-
-<div class="job-title">
-Projekty komercyjne
-<span class="date">2023 – 2025</span>
-</div>
-
-<ul>
-
-<li>Prognozowanie szeregów czasowych (FedFormer, XGBoost)</li>
-<li>Automatyzacja pipeline’ów danych</li>
-<li>Docker + FastAPI + CI/CD</li>
-
-</ul>
-
-</div>
-
-<div class="job">
-
-<div class="job-title">
-Inżynier systemów elektronicznych
-<span class="date">2000 – 2025</span>
-</div>
-
-<ul>
-
-<li>Diagnostyka systemów elektronicznych</li>
-<li>Systemy czasu rzeczywistego</li>
-
-</ul>
-
-</div>
-
-</div>
-
-<div class="section">
-
-<h3>PROJEKTY</h3>
-
-<ul>
-
-<li>GraphCast + SWAN — operacyjny system prognoz</li>
-<li>Pipeline ERA5 / GFS / GEBCO → NetCDF</li>
-<li>Segmentacja danych sonarowych (U-Net + GIS)</li>
-
-</ul>
-
-</div>
-
-<div class="section">
-
-<h3>WYKSZTAŁCENIE</h3>
-
-Wyższa Szkoła Telekomunikacji w Kijowie  
-2006 – 2009  
-Inżynieria komputerowa
-
-</div>
-
-<div class="section small">
-
-Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z art. 6 ust. 1 lit. a RODO.
-
-</div>
-
-</div>
-
+  <div class="cv-header">
+    <div>
+      <div class="cv-id">PROFILE &gt; OLEH_BEDENOK / ML-ENGINEER</div>
+    </div>
+    <div class="cv-status">
+      <div class="cv-status-dot"></div>
+      <span>status: available_for_hire()</span>
+    </div>
+  </div>
+
+  <div class="cv-grid">
+    <!-- LEFT COLUMN: IDENTITY / STACK -->
+    <div class="panel">
+      <div class="panel-title"><span>ID</span> / CORE</div>
+
+      <div class="hero">
+        <div class="avatar-ring">
+          <div class="avatar-ring-inner">
+            <img src="files/photo.jpg" alt="Oleh Bedenok">
+          </div>
+        </div>
+        <div>
+          <div class="hero-text-name">Oleh Bedenok</div>
+          <div class="hero-text-role">AI &amp; ML ENGINEER</div>
+          <div class="hero-tags">
+            <span class="tag">Forecasting systems</span>
+            <span class="tag">GraphCast → SWAN</span>
+            <span class="tag">Time series</span>
+            <span class="tag">GPU inference</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-row">
+          <span class="contact-label">email</span>
+          <span class="contact-value">oleg11228811@gmail.com</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">phone</span>
+          <span class="contact-value">+48 577 165 986</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">location</span>
+          <span class="contact-value">Kowale (Gdańsk), Polska</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">github</span>
+          <span class="contact-value">github.com/oleg1281</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">linkedin</span>
+          <span class="contact-value">linkedin.com/in/oleg-bedenok</span>
+        </div>
+      </div>
+
+      <div class="pill-row">
+        <span class="pill">Python</span>
+        <span class="pill">NumPy</span>
+        <span class="pill">Pandas</span>
+        <span class="pill">xarray</span>
+        <span class="pill">Docker</span>
+        <span class="pill">FastAPI</span>
+        <span class="pill">GPU / CUDA</span>
+      </div>
+
+      <div class="panel-title" style="margin-top:20px;"><span>SKILL</span> / SUMMARY</div>
+
+      <div class="metric-grid">
+        <div class="metric">
+          <div class="metric-label">forecast stack</div>
+          <div class="metric-value">2</div>
+          <div class="metric-desc">GraphCast → SWAN, ERA5 / GFS</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">prod systems</div>
+          <div class="metric-value">10+</div>
+          <div class="metric-desc">API, pipelines, monitoring</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">experience</div>
+          <div class="metric-value">20+</div>
+          <div class="metric-desc">lat w systemach technicznych</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">langs</div>
+          <div class="metric-desc">PL (B2), UA / RU (native), EN (basic)</div>
+        </div>
+      </div>
+
+      <div class="stack-list">
+        <span>ML / DL:</span> GraphCast, SWAN, U-Net, FedFormer, XGBoost, ARIMA / SARIMAX<br>
+        <span>Dane:</span> ERA5, GFS, GEBCO, NetCDF, GRIB, CSV<br>
+        <span>DevOps:</span> Docker, Git, GitHub Actions, Linux, WSL2<br>
+        <span>Viz:</span> Dash, Plotly, Matplotlib
+      </div>
+
+      <div class="lang-list">
+        <strong>Certyfikaty:</strong> Python Developer (Sololearn), Python Intermediate, Introduction to Python, Introduction to C++
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN: EXPERIENCE / PROJECTS / EDUCATION -->
+    <div class="panel panel--right">
+      <div class="panel-title"><span>PROFILE</span> / SUMMARY</div>
+      <div class="section-caption">
+        Inżynier uczenia maszynowego specjalizujący się w operacyjnych systemach prognozowania
+        pogody i fal morskich. Buduję stabilne pipeline’y produkcyjne: pobieranie danych
+        (ERA5 / GFS), preprocessing, inferencja GPU, REST API oraz wizualizacje prognoz.
+      </div>
+
+      <div class="panel-title" style="margin-top:20px;"><span>XP</span> / HISTORY</div>
+      <div class="xp-group">
+        <div class="xp-item">
+          <div class="xp-header">
+            <div class="xp-role">Machine Learning Engineer</div>
+            <div class="xp-period">03.2025 – obecnie</div>
+          </div>
+          <div class="xp-company">MEWO</div>
+          <ul class="xp-list">
+            <li>Operacyjny system prognoz: GraphCast → SWAN (środowisko produkcyjne).</li>
+            <li>Pipeline danych ERA5 / GFS / NetCDF dla fal i pogody.</li>
+            <li>Inferencja GPU i optymalizacja obliczeń (wydajność, stabilność).</li>
+            <li>REST API (FastAPI) i narzędzia do wizualizacji prognoz.</li>
+          </ul>
+        </div>
+
+        <div class="xp-item">
+          <div class="xp-header">
+            <div class="xp-role">Projekty komercyjne</div>
+            <div class="xp-period">2023 – 2025</div>
+          </div>
+          <div class="xp-company">Różni klienci</div>
+          <ul class="xp-list">
+            <li>Prognozowanie szeregów czasowych (FedFormer, XGBoost).</li>
+            <li>Automatyzacja pipeline’ów danych od pobrania po model.</li>
+            <li>Docker + FastAPI + CI/CD dla serwisów ML.</li>
+          </ul>
+        </div>
+
+        <div class="xp-item">
+          <div class="xp-header">
+            <div class="xp-role">Inżynier systemów elektronicznych</div>
+            <div class="xp-period">2000 – 2025</div>
+          </div>
+          <div class="xp-company">Systemy czasu rzeczywistego</div>
+          <ul class="xp-list">
+            <li>Diagnostyka i utrzymanie systemów elektronicznych.</li>
+            <li>Praca z systemami czasu rzeczywistego i infrastrukturą.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="panel-title" style="margin-top:16px;"><span>PROJECTS</span> / SELECTED</div>
+      <div class="section-caption">
+        <ul class="xp-list">
+          <li>GraphCast + SWAN — operacyjny system prognoz fal i pogody.</li>
+          <li>Pipeline ERA5 / GFS / GEBCO → NetCDF dla analiz i prognoz.</li>
+          <li>Segmentacja danych sonarowych (U-Net + GIS) dla zastosowań morskich.</li>
+        </ul>
+      </div>
+
+      <div class="panel-title" style="margin-top:10px;"><span>EDU</span> / BACKGROUND</div>
+      <div class="section-caption">
+        Wyższa Szkoła Telekomunikacji w Kijowie (2006 – 2009) — Inżynieria komputerowa.
+      </div>
+
+      <div class="footer-note">
+        Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z art. 6 ust. 1 lit. a RODO.
+      </div>
+    </div>
+  </div>
 </div>
 
 </body>
