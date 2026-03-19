@@ -28,10 +28,16 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial,
       sans-serif;
     background:
-      radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.16), transparent 55%),
-      radial-gradient(circle at 100% 0%, rgba(129, 140, 248, 0.2), transparent 55%),
-      radial-gradient(circle at 50% 100%, rgba(15, 118, 110, 0.16), transparent 55%),
-      var(--bg);
+      radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.2), transparent 55%),
+      radial-gradient(circle at 100% 0%, rgba(129, 140, 248, 0.24), transparent 55%),
+      radial-gradient(circle at 50% 100%, rgba(15, 118, 110, 0.2), transparent 55%),
+      repeating-linear-gradient(
+        -45deg,
+        #020617,
+        #020617 2px,
+        #030712 2px,
+        #030712 4px
+      );
     margin: 0;
     padding: 32px 16px 40px 16px;
     color: var(--text-main);
@@ -58,13 +64,40 @@
     content: "";
     position: fixed;
     inset: 0;
-    background-image: linear-gradient(
+    background-image:
+      /* крупные мягкие пятна света */
+      radial-gradient(circle at 20% 120%, rgba(56, 189, 248, 0.32), transparent 55%),
+      radial-gradient(circle at 80% -10%, rgba(129, 140, 248, 0.35), transparent 55%),
+      /* орбиты */
+      repeating-radial-gradient(
+        circle at 12% 18%,
+        rgba(37, 99, 235, 0.32),
+        rgba(37, 99, 235, 0.32) 1px,
+        transparent 1px,
+        transparent 7px
+      ),
+      repeating-radial-gradient(
+        circle at 88% 82%,
+        rgba(8, 47, 73, 0.26),
+        rgba(8, 47, 73, 0.26) 1px,
+        transparent 1px,
+        transparent 9px
+      ),
+      /* диагональная сетка */
+      linear-gradient(
         135deg,
         rgba(15, 23, 42, 0.9) 0%,
         rgba(15, 23, 42, 0.2) 40%,
-        rgba(15, 23, 42, 0.9) 100%
+        rgba(15, 23, 42, 0.95) 100%
+      ),
+      repeating-linear-gradient(
+        135deg,
+        rgba(15, 23, 42, 0.4),
+        rgba(15, 23, 42, 0.4) 1px,
+        rgba(31, 41, 55, 0.4) 1px,
+        rgba(31, 41, 55, 0.4) 6px
       );
-    mix-blend-mode: soft-light;
+    mix-blend-mode: normal;
     pointer-events: none;
     z-index: -1;
   }
@@ -177,10 +210,10 @@
     border-radius: inherit;
     background: linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.18),
-      transparent 32%
+      rgba(255, 255, 255, 0.26),
+      transparent 34%
     );
-    opacity: 0.35;
+    opacity: 0.5;
     pointer-events: none;
   }
 
@@ -335,8 +368,12 @@
   .metric {
     border-radius: 14px;
     border: 1px solid rgba(15, 23, 42, 0.9);
-    background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.26), rgba(15, 23, 42, 0.98));
-    box-shadow: 0 0 0 1px rgba(15, 23, 42, 1);
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(15, 23, 42, 0.96)),
+      radial-gradient(circle at top left, rgba(56, 189, 248, 0.32), rgba(15, 23, 42, 0.98));
+    box-shadow:
+      0 10px 26px rgba(15, 23, 42, 0.9),
+      0 0 0 1px rgba(15, 23, 42, 1);
     padding: 10px 11px 8px 11px;
   }
 
